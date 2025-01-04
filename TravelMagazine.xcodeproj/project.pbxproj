@@ -15,7 +15,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		83A9706A2D27F0CF00A099CE /* Exceptions for "TravelMagazine" folder in "TravelMagazine" target */ = {
+		836EB1312D28111B0074C03A /* Exceptions for "TravelMagazine" folder in "TravelMagazine" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -28,7 +28,7 @@
 		83A9705A2D27F0CE00A099CE /* TravelMagazine */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				83A9706A2D27F0CF00A099CE /* Exceptions for "TravelMagazine" folder in "TravelMagazine" target */,
+				836EB1312D28111B0074C03A /* Exceptions for "TravelMagazine" folder in "TravelMagazine" target */,
 			);
 			path = TravelMagazine;
 			sourceTree = "<group>";
