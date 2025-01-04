@@ -57,40 +57,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="506" id="qxF-4g-0KU" customClass="MagazineTableViewCell" customModule="TravelMagazine" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MagazineTableViewCell" rowHeight="506" id="qxF-4g-0KU" customClass="MagazineTableViewCell" customModule="TravelMagazine" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="506"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qxF-4g-0KU" id="NRA-WU-JvW">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="506"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TEW-r7-eM9">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TEW-r7-eM9">
                                             <rect key="frame" x="12" y="12" width="369" height="369"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="TEW-r7-eM9" secondAttribute="height" multiplier="1:1" id="nXb-Fg-6gP"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Z4a-i5-7OG">
-                                            <rect key="frame" x="12" y="393" width="369" height="82.333333333333314"/>
+                                            <rect key="frame" x="12" y="393" width="369" height="73"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izX-rd-Ica">
-                                                    <rect key="frame" x="0.0" y="0.0" width="369" height="57.333333333333336"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="369" height="48"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <color key="textColor" name="neutral8"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rk-ph-7pp">
-                                                    <rect key="frame" x="0.0" y="65.333333333333314" width="369" height="17"/>
+                                                    <rect key="frame" x="0.0" y="56" width="369" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="neutral5"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </stackView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpE-qw-0ty">
-                                            <rect key="frame" x="339.66666666666669" y="473.66666666666669" width="41.333333333333314" height="20.333333333333314"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <rect key="frame" x="350" y="479.66666666666669" width="31" height="14.333333333333314"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" name="neutral5"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -105,6 +110,12 @@
                                         <constraint firstItem="Z4a-i5-7OG" firstAttribute="top" secondItem="TEW-r7-eM9" secondAttribute="bottom" constant="12" id="vpP-04-XCp"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="magazineDateLabel" destination="fpE-qw-0ty" id="zVj-XN-p7J"/>
+                                    <outlet property="magazineImage" destination="TEW-r7-eM9" id="Gmj-Jc-MuE"/>
+                                    <outlet property="magazineLabel" destination="izX-rd-Ica" id="IXe-ha-mEx"/>
+                                    <outlet property="magazineSubLabel" destination="7rk-ph-7pp" id="0Pd-LP-KFy"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -116,7 +127,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LKM-OQ-Y7J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="901.52671755725191" y="708.45070422535218"/>
+            <point key="canvasLocation" x="905" y="707"/>
         </scene>
         <!--travel-->
         <scene sceneID="sbN-FY-Xie">
@@ -356,6 +367,9 @@
         <image name="star" catalog="system" width="128" height="116"/>
         <namedColor name="neutral2">
             <color red="0.90196078431372551" green="0.90196078431372551" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="neutral5">
+            <color red="0.57647058823529407" green="0.57647058823529407" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="neutral8">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

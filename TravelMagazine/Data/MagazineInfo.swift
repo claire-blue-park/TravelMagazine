@@ -16,7 +16,7 @@ struct Magazine {
 }
 
 struct MagazineInfo {
-    let magazine: [Magazine] = [
+    let magazines: [Magazine] = [
         Magazine(title: "유럽 여행 쇼핑 성지, OOO은 꼭 가세요!", subtitle: "유럽의 인기 쇼핑 명소 총정리", photo_image: "https://cdn.pixabay.com/photo/2016/11/22/21/57/apparel-1850804_1280.jpg", date: "241118", link: "https://triple.guide/articles/265bd919-3f75-4adc-8d5d-c5cf60201bfe"),
         Magazine(title: "현지 MZ가 알려주는 오사카 MZ 인기 스팟", subtitle: "2025 오사카 여행엔 여기!", photo_image: "https://cdn.pixabay.com/photo/2020/10/22/14/05/moon-5676124_1280.jpg", date: "250103", link: "https://triple.guide/articles/d6c5257f-4d52-4a0a-aed2-6773961ee7be"),
         Magazine(title: "2025 NEWS 해외여행, 이렇게 달라졌다!", subtitle: "알고 준비하는 2025 새 여행", photo_image: "https://cdn.pixabay.com/photo/2020/03/31/10/42/park-4987140_1280.jpg", date: "250108", link: "https://triple.guide/articles/997d84b1-25b3-4494-a400-457d1205264a"),
