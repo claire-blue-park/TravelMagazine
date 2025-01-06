@@ -8,82 +8,95 @@
 import UIKit
 
 class ChecklistTableViewController: UITableViewController {
-
+    
+//    private var checkLists: [CheckList] = [CheckList(list: "test", check: true, like: false)]
+    private var checkLists: [CheckList] = []
+    
+    @IBOutlet var listTextField: UITextField!
+    
+    @IBOutlet var addButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        setupHeader()
+    }
+    
+    // MARK: - setup header
+    private func setupHeader() {
+        listTextField.borderStyle = .none
+        listTextField.layer.cornerRadius = 8
+        
+        addButton.layer.cornerRadius = 8
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
+    
+    // MARK: - setup table view
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return checkLists.count
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChecklistTableViewCell") as! ChecklistTableViewCell
+        
+        let checkList = checkLists[indexPath.row]
+        
+        cell.listLabel.text = checkList.list
+        
+        let checkImage = checkList.check ? UIImage(systemName: "checkmark.square.fill") : UIImage(systemName: "square")
+        cell.checkButton.setImage(checkImage, for: .normal)
+        cell.checkButton.tag = indexPath.row
+        cell.checkButton.addTarget(self, action: #selector(checkButtonTapped), for: .touchUpInside)
+        
+        let likeImage = checkList.like ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
+        cell.likeButton.setImage(likeImage, for: .normal)
+        cell.likeButton.tag = indexPath.row
+        cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
+        
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
-    */
+    
 
-    /*
-    // Override to support editing the table view.
+    
+    // MARK: - swipe delete
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            tableView.beginUpdates()
+            checkLists.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            tableView.endUpdates()
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    // MARK: - button actions
+    @objc private func checkButtonTapped(_ sender: UIButton) {
+        checkLists[sender.tag].check.toggle()
+        tableView.reloadData()
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    @objc private func likeButtonTapped(_ sender: UIButton) {
+        checkLists[sender.tag].like.toggle()
+        tableView.reloadData()
     }
-    */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func addButtonTapped(_ sender: Any) {
+        if listTextField.text!.isEmpty {
+            return
+        }
+        
+        checkLists.append(CheckList(list: listTextField.text!, check: false, like: false))
+        
+        listTextField.text = ""
+        listTextField.endEditing(true)
+        
+        print(checkLists)
+        tableView.reloadData()
     }
-    */
-
 }

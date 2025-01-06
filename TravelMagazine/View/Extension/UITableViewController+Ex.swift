@@ -9,6 +9,7 @@ import UIKit
 
 extension UITableViewController {
     open override func viewDidLoad() {
-        self.tableView.backgroundColor = .background
+        self.tableView.backgroundColor = .systemBackground
     }
+    
 }

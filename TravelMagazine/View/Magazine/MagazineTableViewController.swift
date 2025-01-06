@@ -29,13 +29,15 @@ class MagazineTableViewController: UITableViewController {
         cell.magazineImage.kf.setImage(with: imageUrl)
         cell.magazineLabel.text = magazine.title
         cell.magazineSubLabel.text = magazine.subtitle
+    
+        let tempFormatter = DateFormatter()
+        tempFormatter.dateFormat = "yyMMdd"
         
-        // TODO: - 데이터로 받아오는 날짜 포맷 수정 필요
         let formatter = DateFormatter()
         formatter.dateFormat = "yy년 MM월 dd일"
-        let date = formatter.date(from: magazine.date)
-        cell.magazineDateLabel.text = formatter.string(from: date ?? Date())
-        
+        if let date = tempFormatter.date(from: magazine.date) {
+            cell.magazineDateLabel.text = formatter.string(for: date)
+        }
         return cell
     }
     
