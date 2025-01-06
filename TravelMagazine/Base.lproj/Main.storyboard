@@ -25,13 +25,14 @@
                         <segue destination="V2T-rB-a8G" kind="relationship" relationship="viewControllers" id="tBA-A9-2Nj"/>
                         <segue destination="06y-V8-4p1" kind="relationship" relationship="viewControllers" id="Mdq-d2-JMC"/>
                         <segue destination="AYM-K4-wei" kind="relationship" relationship="viewControllers" id="eJD-HT-YAR"/>
+                        <segue destination="Dnc-21-yPo" kind="relationship" relationship="viewControllers" id="1BX-Nq-4Xg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iur-rR-bqX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1489" y="-328"/>
         </scene>
-        <!--MAGAZINE-->
+        <!--매거진-->
         <scene sceneID="NrI-ZR-hgW">
             <objects>
                 <tableViewController id="Fgg-zH-I9r" customClass="MagazineTableViewController" customModule="TravelMagazine" customModuleProvider="target" sceneMemberID="viewController">
@@ -106,13 +107,13 @@
                             <outlet property="delegate" destination="Fgg-zH-I9r" id="mYM-PW-gBW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="MAGAZINE" id="VqJ-uA-wHe"/>
+                    <navigationItem key="navigationItem" title="매거진" id="VqJ-uA-wHe"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LKM-OQ-Y7J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="905" y="1361"/>
         </scene>
-        <!--TRAVEL-->
+        <!--여행-->
         <scene sceneID="sbN-FY-Xie">
             <objects>
                 <tableViewController id="3d1-zf-HxV" customClass="TravelTableViewController" customModule="TravelMagazine" customModuleProvider="target" sceneMemberID="viewController">
@@ -305,13 +306,13 @@
                             <outlet property="delegate" destination="3d1-zf-HxV" id="vqm-vL-gU8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="TRAVEL" id="Kc2-gu-hbv"/>
+                    <navigationItem key="navigationItem" title="여행" id="Kc2-gu-hbv"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4bT-HC-XVM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1740" y="1361"/>
         </scene>
-        <!--CHECK LIST-->
+        <!--체크리스트-->
         <scene sceneID="1qT-aU-4Ip">
             <objects>
                 <tableViewController id="9TF-79-vR2" customClass="ChecklistTableViewController" customModule="TravelMagazine" customModuleProvider="target" sceneMemberID="viewController">
@@ -444,7 +445,7 @@
                             <outlet property="delegate" destination="9TF-79-vR2" id="KK0-wA-WHy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="CHECK LIST" id="NMv-bF-kUZ"/>
+                    <navigationItem key="navigationItem" title="체크리스트" id="NMv-bF-kUZ"/>
                     <connections>
                         <outlet property="addButton" destination="OMJ-HK-gE0" id="1id-Md-k2e"/>
                         <outlet property="listTextField" destination="KFv-bM-kEU" id="Gph-B9-IAN"/>
@@ -511,9 +512,58 @@
             </objects>
             <point key="canvasLocation" x="2500" y="707"/>
         </scene>
+        <!--인기 도시-->
+        <scene sceneID="EHj-bh-d7I">
+            <objects>
+                <tableViewController id="u9N-JB-bBt" customClass="CityTableViewController" customModule="TravelMagazine" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="WZE-nJ-IHv">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityTableViewCell" id="2C3-Rb-HPb" customClass="CityTableViewCell" customModule="TravelMagazine" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="393" height="44.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2C3-Rb-HPb" id="GEM-Qn-2qg">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="u9N-JB-bBt" id="7sb-s9-GBb"/>
+                            <outlet property="delegate" destination="u9N-JB-bBt" id="NRz-CH-vpL"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="인기 도시" id="SqU-yc-YQ2"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bgp-R3-Msk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3323" y="1361"/>
+        </scene>
+        <!--city-->
+        <scene sceneID="VTp-8g-9ik">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dnc-21-yPo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="city" image="building.2.crop.circle.fill" catalog="system" id="dMJ-OD-Ran"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xli-QK-Hcb">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="u9N-JB-bBt" kind="relationship" relationship="rootViewController" id="2YK-wC-rTU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JSK-jd-DPi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3323" y="706"/>
+        </scene>
     </scenes>
     <resources>
         <image name="book.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="building.2.crop.circle.fill" catalog="system" width="128" height="123"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="123"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="mappin.circle.fill" catalog="system" width="128" height="123"/>
