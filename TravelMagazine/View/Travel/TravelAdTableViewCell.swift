@@ -7,9 +7,9 @@
 
 import UIKit
 
-class TravelADTableViewCell: UITableViewCell {
+class TravelAdTableViewCell: UITableViewCell {
     
-    static let identifier = String(describing: TravelADTableViewCell.self)
+    static let identifier = String(describing: TravelAdTableViewCell.self)
     
     @IBOutlet var adLabel: UILabel!
     @IBOutlet var adBadgeLabel: UILabel!

@@ -35,7 +35,7 @@ class TravelTableViewController: UITableViewController {
             
         // 2. 광고일 경우
         } else {
-            let adCell = tableView.dequeueReusableCell(withIdentifier: TravelADTableViewCell.identifier) as! TravelADTableViewCell
+            let adCell = tableView.dequeueReusableCell(withIdentifier: TravelAdTableViewCell.identifier) as! TravelAdTableViewCell
             adCell.configureData(travel)
             return adCell
         }

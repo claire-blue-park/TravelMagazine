@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -241,10 +242,10 @@
                                     <outlet property="shopNameLabel" destination="ibc-K0-Wtp" id="nWh-pq-vfP"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TravelADTableViewCell" rowHeight="104" id="7lf-90-J8C" customClass="TravelADTableViewCell" customModule="TravelMagazine" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TravelADTableViewCell" rowHeight="104" id="7lf-90-J8C" customClass="TravelAdTableViewCell" customModule="TravelMagazine" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="228" width="393" height="104"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7lf-90-J8C" id="WN0-vT-2aJ" customClass="TravelADTableViewCell" customModule="TravelMagazine" customModuleProvider="target">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7lf-90-J8C" id="WN0-vT-2aJ" customClass="TravelAdTableViewCell" customModule="TravelMagazine" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="104"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -655,6 +656,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JSK-jd-DPi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3323" y="706"/>
+        </scene>
+        <!--Travel Detail View Controller-->
+        <scene sceneID="2vL-14-Y0r">
+            <objects>
+                <viewController id="9Zn-mQ-5E6" customClass="TravelDetailViewController" customModule="TravelMagazine" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c1L-k8-Bi3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="G68-Tc-dp3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gh5-d9-Uq7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PE2-Ik-NNp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1581" y="2805"/>
+        </scene>
+        <!--Travel Ad Detail View Controller-->
+        <scene sceneID="8yb-XA-bDT">
+            <objects>
+                <viewController id="lIJ-EF-KUF" customClass="TravelAdDetailViewController" customModule="TravelMagazine" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XU4-Xa-NZy">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="hAi-uC-FfA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="SLl-lD-RlT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z2y-zU-FfK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2288" y="2805"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="f1O-Gm-L93">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hds-4i-K21" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tbs-X0-d2W">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9Zn-mQ-5E6" kind="relationship" relationship="rootViewController" id="Qve-Aq-Lgi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SBQ-Jf-16I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1580.9160305343512" y="2112.6760563380285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="frC-Cp-FZq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UhZ-78-mZV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hez-xZ-3en">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lIJ-EF-KUF" kind="relationship" relationship="rootViewController" id="PWc-lL-357"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W4a-ve-S23" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2288" y="2113"/>
         </scene>
     </scenes>
     <resources>
