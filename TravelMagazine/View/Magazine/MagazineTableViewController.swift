@@ -14,7 +14,6 @@ class MagazineTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -22,22 +21,11 @@ class MagazineTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MagazineTableViewCell") as! MagazineTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: MagazineTableViewCell.identifier) as! MagazineTableViewCell
         
         let magazine = magazines[indexPath.row]
-        let imageUrl = URL(string: magazine.photo_image)
-        cell.magazineImage.kf.setImage(with: imageUrl)
-        cell.magazineLabel.text = magazine.title
-        cell.magazineSubLabel.text = magazine.subtitle
-    
-        let tempFormatter = DateFormatter()
-        tempFormatter.dateFormat = "yyMMdd"
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yy년 MM월 dd일"
-        if let date = tempFormatter.date(from: magazine.date) {
-            cell.magazineDateLabel.text = formatter.string(for: date)
-        }
+        cell.configureData(magazine: magazine)
+
         return cell
     }
     

@@ -516,18 +516,110 @@
         <scene sceneID="EHj-bh-d7I">
             <objects>
                 <tableViewController id="u9N-JB-bBt" customClass="CityTableViewController" customModule="TravelMagazine" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="WZE-nJ-IHv">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="WZE-nJ-IHv">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Zon-Xv-0SY">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="b2m-BZ-Dql">
+                                    <rect key="frame" x="20" y="8" width="353" height="84"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="찾는 도시명을 검색하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S4v-FE-kOD">
+                                            <rect key="frame" x="0.0" y="0.0" width="353" height="44"/>
+                                            <color key="backgroundColor" name="panel"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="4FW-MJ-TtE"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                            <connections>
+                                                <action selector="onSearchButtonTapped:" destination="u9N-JB-bBt" eventType="editingDidEndOnExit" id="qRe-np-l1t"/>
+                                            </connections>
+                                        </textField>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wdb-iy-wKq">
+                                            <rect key="frame" x="0.0" y="52" width="353" height="33"/>
+                                            <segments>
+                                                <segment title="모두"/>
+                                                <segment title="국내"/>
+                                                <segment title="해외"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="onSegmentValueChanged:" destination="u9N-JB-bBt" eventType="valueChanged" id="GXI-cm-Q3d"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="S4v-FE-kOD" secondAttribute="trailing" id="DZ5-hF-74d"/>
+                                        <constraint firstAttribute="bottom" secondItem="wdb-iy-wKq" secondAttribute="bottom" id="HIw-rW-51g"/>
+                                        <constraint firstAttribute="trailing" secondItem="wdb-iy-wKq" secondAttribute="trailing" id="Osk-yt-OiT"/>
+                                        <constraint firstItem="S4v-FE-kOD" firstAttribute="leading" secondItem="b2m-BZ-Dql" secondAttribute="leading" id="mSq-FG-htC"/>
+                                        <constraint firstItem="S4v-FE-kOD" firstAttribute="top" secondItem="b2m-BZ-Dql" secondAttribute="top" id="q3K-f8-n5Z"/>
+                                        <constraint firstItem="wdb-iy-wKq" firstAttribute="leading" secondItem="b2m-BZ-Dql" secondAttribute="leading" id="zFC-g8-9Ab"/>
+                                    </constraints>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="b2m-BZ-Dql" secondAttribute="bottom" constant="8" id="1zl-oJ-soi"/>
+                                <constraint firstAttribute="trailing" secondItem="b2m-BZ-Dql" secondAttribute="trailing" constant="20" id="59i-BT-SDo"/>
+                                <constraint firstItem="b2m-BZ-Dql" firstAttribute="leading" secondItem="Zon-Xv-0SY" secondAttribute="leading" constant="20" id="Hwv-nV-mgz"/>
+                                <constraint firstItem="b2m-BZ-Dql" firstAttribute="top" secondItem="Zon-Xv-0SY" secondAttribute="top" constant="8" id="qAc-98-BNS"/>
+                            </constraints>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityTableViewCell" id="2C3-Rb-HPb" customClass="CityTableViewCell" customModule="TravelMagazine" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="393" height="44.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityTableViewCell" rowHeight="122" id="2C3-Rb-HPb" customClass="CityTableViewCell" customModule="TravelMagazine" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="150" width="393" height="122"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2C3-Rb-HPb" id="GEM-Qn-2qg">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="122"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t2l-Aq-SKe">
+                                            <rect key="frame" x="20" y="8" width="353" height="106"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIh-2F-GRI">
+                                            <rect key="frame" x="322.66666666666669" y="15.999999999999998" width="42.333333333333314" height="19.333333333333329"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                            <color key="textColor" name="neutral0"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="crz-Dq-6vh">
+                                            <rect key="frame" x="20" y="78" width="353" height="36"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="36" id="Dgz-V6-nOt"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBD-ka-swb">
+                                            <rect key="frame" x="28" y="87.666666666666671" width="345" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" name="neutral0"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="crz-Dq-6vh" secondAttribute="trailing" constant="20" id="1Q3-XM-1R4"/>
+                                        <constraint firstItem="dBD-ka-swb" firstAttribute="centerY" secondItem="crz-Dq-6vh" secondAttribute="centerY" id="BnF-0u-X5N"/>
+                                        <constraint firstItem="dBD-ka-swb" firstAttribute="trailing" secondItem="crz-Dq-6vh" secondAttribute="trailing" id="OSJ-S3-4jw"/>
+                                        <constraint firstItem="dBD-ka-swb" firstAttribute="leading" secondItem="crz-Dq-6vh" secondAttribute="leading" constant="8" id="SEw-rP-Alc"/>
+                                        <constraint firstItem="crz-Dq-6vh" firstAttribute="bottom" secondItem="t2l-Aq-SKe" secondAttribute="bottom" id="VR2-ze-uQp"/>
+                                        <constraint firstItem="OIh-2F-GRI" firstAttribute="top" secondItem="t2l-Aq-SKe" secondAttribute="top" constant="8" id="WsN-1r-zEx"/>
+                                        <constraint firstAttribute="bottom" secondItem="t2l-Aq-SKe" secondAttribute="bottom" constant="8" id="X5m-8q-7VS"/>
+                                        <constraint firstItem="crz-Dq-6vh" firstAttribute="leading" secondItem="GEM-Qn-2qg" secondAttribute="leading" constant="20" id="irG-hU-Rrh"/>
+                                        <constraint firstAttribute="trailing" secondItem="t2l-Aq-SKe" secondAttribute="trailing" constant="20" id="oUs-f8-Cpx"/>
+                                        <constraint firstItem="t2l-Aq-SKe" firstAttribute="top" secondItem="GEM-Qn-2qg" secondAttribute="top" constant="8" id="pef-fK-kPI"/>
+                                        <constraint firstItem="t2l-Aq-SKe" firstAttribute="leading" secondItem="GEM-Qn-2qg" secondAttribute="leading" constant="20" id="tAx-Es-rtO"/>
+                                        <constraint firstItem="OIh-2F-GRI" firstAttribute="trailing" secondItem="t2l-Aq-SKe" secondAttribute="trailing" constant="-8" id="vlq-n9-baD"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cityImageView" destination="t2l-Aq-SKe" id="cWt-4e-D03"/>
+                                    <outlet property="cityInfoLabel" destination="dBD-ka-swb" id="FGP-jX-rVR"/>
+                                    <outlet property="cityLabel" destination="OIh-2F-GRI" id="dkq-Zi-gzw"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -536,10 +628,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="인기 도시" id="SqU-yc-YQ2"/>
+                    <connections>
+                        <outlet property="citySegment" destination="wdb-iy-wKq" id="Q2k-lm-GmR"/>
+                        <outlet property="searchTextField" destination="S4v-FE-kOD" id="t4U-D7-O2p"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bgp-R3-Msk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3323" y="1361"/>
+            <point key="canvasLocation" x="3322.9007633587785" y="1359.8591549295775"/>
         </scene>
         <!--city-->
         <scene sceneID="VTp-8g-9ik">
@@ -587,6 +683,9 @@
         </namedColor>
         <namedColor name="neutral8">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="panel">
+            <color red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

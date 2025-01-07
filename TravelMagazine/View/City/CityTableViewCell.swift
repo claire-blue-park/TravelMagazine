@@ -6,18 +6,28 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CityTableViewCell: UITableViewCell {
+    
+    static let identifier = String(describing: CityTableViewCell.self)
 
+    @IBOutlet var cityImageView: UIImageView!
+    @IBOutlet var cityLabel: UILabel!
+    @IBOutlet var cityInfoLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        // TODO: -코너값
+        
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func configureData(city: City) {
+        let imageUrl = URL(string: city.city_image)
+        cityImageView.kf.setImage(with: imageUrl)
+        cityLabel.text = city.city_title
+        cityInfoLabel.text = city.city_explain
     }
 
 }

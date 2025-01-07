@@ -12,6 +12,9 @@ struct City {
     let city_explain: String
     let city_image: String
     let domestic_travel: Bool
+    var city_title: String {
+        city_name + " | " + city_english_name
+    }
 }
  
 struct CityInfo {

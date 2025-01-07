@@ -13,42 +13,29 @@ class ChecklistTableViewController: UITableViewController {
     private var checkLists: [CheckList] = []
     
     @IBOutlet var listTextField: UITextField!
-    
     @IBOutlet var addButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupHeader()
     }
     
-    // MARK: - setup header
-    private func setupHeader() {
-        listTextField.borderStyle = .none
-        listTextField.layer.cornerRadius = 8
-        
-        addButton.layer.cornerRadius = 8
-    }
-
-    
-    // MARK: - setup table view
+    // MARK: - setup TableViewController
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return checkLists.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ChecklistTableViewCell") as! ChecklistTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ChecklistTableViewCell.identifier) as! ChecklistTableViewCell
         
         let checkList = checkLists[indexPath.row]
         
-        cell.listLabel.text = checkList.list
+        cell.configureData(checkList: checkList)
         
-        let checkImage = checkList.check ? UIImage(systemName: "checkmark.square.fill") : UIImage(systemName: "square")
-        cell.checkButton.setImage(checkImage, for: .normal)
         cell.checkButton.tag = indexPath.row
         cell.checkButton.addTarget(self, action: #selector(checkButtonTapped), for: .touchUpInside)
         
-        let likeImage = checkList.like ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
-        cell.likeButton.setImage(likeImage, for: .normal)
         cell.likeButton.tag = indexPath.row
         cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
         
@@ -59,9 +46,7 @@ class ChecklistTableViewController: UITableViewController {
         return 60
     }
     
-
-    
-    // MARK: - swipe delete
+    // MARK: - Delete onSwipe
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
@@ -75,7 +60,15 @@ class ChecklistTableViewController: UITableViewController {
         }
     }
     
-    // MARK: - button actions
+    // MARK: - setup Header
+    private func setupHeader() {
+        listTextField.borderStyle = .none
+        listTextField.layer.cornerRadius = 8
+        
+        addButton.layer.cornerRadius = 8
+    }
+    
+    // MARK: - Button actions
     @objc private func checkButtonTapped(_ sender: UIButton) {
         checkLists[sender.tag].check.toggle()
         tableView.reloadData()

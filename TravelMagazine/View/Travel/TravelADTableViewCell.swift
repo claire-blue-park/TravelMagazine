@@ -9,7 +9,16 @@ import UIKit
 
 class TravelADTableViewCell: UITableViewCell {
     
+    static let identifier = String(describing: TravelADTableViewCell.self)
+    
     @IBOutlet var adLabel: UILabel!
     @IBOutlet var adBadgeLabel: UILabel!
+    
+    func configureData(_ travel: Travel) {
+        adLabel.text = travel.title
+        
+        let colors: [UIColor] = [.ad0, .ad1, .ad2, .ad3, .ad4]
+        adLabel.backgroundColor = colors.randomElement()
+    }
 
 }
