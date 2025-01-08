@@ -21,6 +21,8 @@ class CityTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.register(UINib(nibName: CityWithXIBTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: CityWithXIBTableViewCell.identifier)
+        
         onSegmentValueChanged(citySegment)
     }
     // MARK: - setup TextField
@@ -56,9 +58,9 @@ class CityTableViewController: UITableViewController {
     @IBAction func onSegmentValueChanged(_ sender: UISegmentedControl) {
         searchTextField.text = ""
         sortedCities = switch citySegment.selectedSegmentIndex {
-        case 1: originalCityInfos.filter({ city in
+        case 1: originalCityInfos.filter { city in
             city.domestic_travel == true
-        })
+        }
         case 2: originalCityInfos.filter({ city in
             city.domestic_travel == false
         })
@@ -77,7 +79,6 @@ class CityTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.identifier) as! CityTableViewCell
         
-        tableView.register(UINib(nibName: CityWithXIBTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: CityWithXIBTableViewCell.identifier)
         let cell = tableView.dequeueReusableCell(withIdentifier: CityWithXIBTableViewCell.identifier) as! CityWithXIBTableViewCell
         
         cell.configureData(city: cities[indexPath.row], searchedWord: searchTextField.text!)
